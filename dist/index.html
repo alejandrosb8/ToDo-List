@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<button id="menuButton"></button>
+			<h1>To-Do List</h1>
+		</header>
+		<div class="grid-container">
+			<nav class="sidebar">
+				<div class="wrapper">
+					<section class="home">
+						<ul>
+							<li id="homeBtn" class="sidebutton btnActive">Home</li>
+							<li id="todayBtn" class="sidebutton">Today</li>
+							<li id="weekBtn" class="sidebutton">Week</li>
+							<li id="notesBtn" class="sidebutton">Notes</li>
+						</ul>
+					</section>
+					<section class="project">
+						<h2>Projects</h2>
+						<ul id="projectList"></ul>
+					</section>
+				</div>
+			</nav>
+			<main id="main">
+				<div class="blacked"></div>
+			</main>
+		</div>
+		<script src="bundle.js"></script>
+	</body>
+</html>

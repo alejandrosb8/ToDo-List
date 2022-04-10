@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+	--primary-color: #fff;
+	--secondary-color: #2363b0;
+	--darker-blue: #1d5191;
+	--gray: #f5f5f5;
+}
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	font-family: 'Roboto', sans-serif;
+	font-size: 62.5%;
+}
+body {
+	min-height: 100%;
+}
+header {
+	width: 100%;
+	background-color: var(--secondary-color);
+	height: auto;
+	height: 55px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	column-gap: 15px;
+	padding: 10px;
+}
+header h1 {
+	font-size: 2.6rem;
+	font-weight: 700;
+	color: var(--primary-color);
+}
+header button {
+	width: 35px;
+	height: 35px;
+	background: url('https://api.iconify.design/ant-design/menu-outlined.svg?color=white') no-repeat
+		center center / contain;
+	content: url('https://api.iconify.design/ant-design/menu-outlined.svg?color=white');
+	border: none;
+	cursor: pointer;
+}
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	min-height: calc(100% - 55px);
+}
+main {
+	overflow: hidden;
+}
+nav {
+	position: fixed;
+	background-color: var(--gray);
+	box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
+	min-height: calc(100% - 55px);
+	min-width: 260px;
+	transform-origin: left;
+	transform: translateX(-260px);
+	-webkit-transform: translateX(-260px);
+	-moz-transform: translateX(-260px);
+	-ms-transform: translateX(-260px);
+	-o-transform: translateX(-260px);
+	z-index: 2;
+	transition: transform 0.25s ease-out;
+	-webkit-transition: transform 0.25s ease-out;
+	-moz-transition: transform 0.25s ease-out;
+	-ms-transition: transform 0.25s ease-out;
+	-o-transition: transform 0.25s ease-out;
+}
+.wrapper {
+	overflow-y: auto;
+}
+.navActive {
+	transform: translateX(0px);
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	-ms-transform: translateX(0px);
+	-o-transform: translateX(0px);
+}
+.blacked {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.25);
+	display: none;
+}
+.sidebar {
+	padding: 10px;
+}
+.sidebar ul {
+	list-style: none;
+}
+.sidebar .home {
+	margin-bottom: 20px;
+}
+.sidebar .home li {
+	font-size: 1.6rem;
+	padding: 8px;
+	margin: 5px auto;
+	font-weight: 500;
+	cursor: pointer;
+}
+.sidebar .sidebutton:hover {
+	background-color: #d9d9d9;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+.sidebar .btnActive {
+	background-color: #b6d7e6 !important;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+.sidebar h2 {
+	font-size: 1.8rem;
+	padding: 5px;
+	font-weight: 500;
+}
+.addProjectButton {
+	margin-top: 10px;
+	padding: 6px;
+	font-size: 1.4rem;
+	cursor: pointer;
+	font-weight: 400;
+	color: var(--primary-color);
+	background-color: var(--secondary-color);
+	text-align: center;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-o-border-radius: 6px;
+}
+.addProjectButton:hover {
+	background-color: var(--darker-blue);
+}
+.addProjectPanel {
+	position: fixed;
+	min-width: 220px;
+	min-height: 200px;
+	top: 25%;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--primary-color);
+	z-index: 2;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 25px;
+	padding: 5px 5px 25px;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+}
+.addProjectPanel .exitButton {
+	background-image: url(./icons/close.png);
+	width: 35px;
+	height: 35px;
+	background-size: cover;
+	background-color: var(--primary-color);
+	border: none;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-o-border-radius: 50px;
+	align-self: flex-end;
+	cursor: pointer;
+}
+.addProjectPanel p {
+	font-size: 1.8rem;
+	font-weight: 500;
+	color: black;
+}
+.addProjectPanel input {
+	font-size: 1.4rem;
+	font-size: 500;
+	height: 2.4rem;
+	width: 80%;
+	padding: 4px;
+	border: 1px solid #444;
+	border-radius: 4px;
+	margin: 4px auto 8px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+.addProjectPanel .acceptButton {
+	min-width: 120px;
+	min-height: 25px;
+	padding: 4px;
+	font-size: 1.4rem;
+	font-weight: 700;
+	background-color: var(--primary-color);
+	color: var(--secondary-color);
+	border: 2px solid var(--secondary-color);
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-o-border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.15s ease-out;
+	-webkit-transition: all 0.15s ease-out;
+	-moz-transition: all 0.15s ease-out;
+	-ms-transition: all 0.15s ease-out;
+	-o-transition: all 0.15s ease-out;
+}
+.addProjectPanel .acceptButton:hover {
+	background-color: var(--secondary-color);
+	color: var(--primary-color);
+}
+.project .sidebutton {
+	font-size: 1.6rem;
+	padding: 8px;
+	margin: 5px auto;
+	font-weight: 500;
+	cursor: pointer;
+	display: grid;
+	grid-template-columns: 1fr 1.6rem 1.6rem;
+	column-gap: 4px;
+}
+.sidebutton:hover {
+	background-color: #d9d9d9;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+.editProjectButton {
+	background-image: url(./icons/edit.png);
+	background-size: cover;
+	border: none;
+	width: 1.6rem;
+	height: 1.6rem;
+	background-color: rgba(0, 0, 0, 0);
+	position: relative;
+	top: 2px;
+	cursor: pointer;
+	z-index: 2;
+}
+.removeProjectButton {
+	background-image: url(./icons/delete.png);
+	background-size: cover;
+	border: none;
+	width: 1.8rem;
+	height: 1.8rem;
+	background-color: rgba(0, 0, 0, 0);
+	position: relative;
+	top: 2px;
+	cursor: pointer;
+	z-index: 2;
+}
