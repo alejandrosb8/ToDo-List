@@ -1,4 +1,4 @@
-import { getProjects, pushProject, removeProject } from './projectsManager';
+import { getProjects, pushProject, removeProject, editProject, checkCopy } from './projectsManager';
 
 let projects = getProjects();
 let lastSelectedButtonId = 'homeBtn';
@@ -24,6 +24,7 @@ function menuEventsLoader() {
 
 function sidebarButtonsEvents() {
 	const deleteButtons = document.getElementsByClassName('removeProjectButton');
+	const editButtons = document.getElementsByClassName('editProjectButton');
 
 	Array.from(deleteButtons).forEach((button) => {
 		button.addEventListener('click', (e) => {
@@ -35,6 +36,12 @@ function sidebarButtonsEvents() {
 			projects = getProjects();
 			resetProjectButton();
 			openMenu();
+		});
+	});
+
+	Array.from(editButtons).forEach((button) => {
+		button.addEventListener('click', (e) => {
+			editProjectPanel(e.target.parentNode.innerText);
 		});
 	});
 }
@@ -184,6 +191,50 @@ function addProjectPanel() {
 			createProjectButton(textBox.value);
 			resetProjectButton();
 			switchActiveBtn(document.getElementById(textBox.value));
+		}
+		closeMenu();
+		openMenu();
+	});
+}
+
+function editProjectPanel(projectName) {
+	const div = document.createElement('div');
+	const textBox = document.createElement('input');
+	const exit = document.createElement('button');
+	const accept = document.createElement('button');
+	const text = document.createElement('p');
+
+	div.classList.add('addProjectPanel');
+	exit.classList.add('exitButton');
+	accept.classList.add('acceptButton');
+
+	accept.innerText = 'Accept';
+	text.innerText = "Project's name";
+
+	textBox.setAttribute('type', 'text');
+	exit.setAttribute('id', 'exitPanelProjectButton');
+
+	textBox.value = projectName;
+
+	div.append(exit, text, textBox, accept);
+
+	const parent = document.getElementById('main');
+
+	parent.appendChild(div);
+
+	isBlackedActive(true);
+
+	exit.addEventListener('click', () => {
+		closeMenu();
+	});
+	accept.addEventListener('click', () => {
+		if (textBox.value != '' && checkCopy(textBox.value)) {
+			editProject(projectName, textBox.value);
+			let temp = projects.map((x) => {
+				return x == projectName ? textBox.value : x;
+			});
+			projects = temp;
+			resetProjectButton();
 		}
 		closeMenu();
 		openMenu();

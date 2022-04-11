@@ -34,4 +34,15 @@ function removeProject(name) {
 	}
 }
 
-export { pushProject, getProjects, removeProject };
+function editProject(oldName, newName) {
+	if (storageAvailable('localStorage') && checkCopy(newName)) {
+		let temp = projects.map((x) => {
+			return x == oldName ? newName : x;
+		});
+		projects = temp;
+
+		localStorage.setItem('list', JSON.stringify(projects));
+	}
+}
+
+export { pushProject, getProjects, removeProject, editProject, checkCopy };
